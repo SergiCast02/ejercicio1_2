@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">ejercicio1_2</string>
+
+    <string name="firma">Sergio Castillo | PMLu-1</string>
+
+    <string name="label1">Nombre</string>
+    <string name="label2">Apellidos</string>
+    <string name="label3">Edad</string>
+    <string name="label4">Correo Electrónico</string>
+    <string name="label5">Enviar Información</string>
+
+    <string name="btn_limpiar">Limpiar Entradas</string>
+
+    <string name="Tit1">Resultado:</string>
+    <string name="Tit2">Persona:</string>
+</resources>
