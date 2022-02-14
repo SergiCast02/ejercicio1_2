@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Persona person = new Persona();
+
         nombre = findViewById(R.id.editTextTextPersonName);
         apellidos = findViewById(R.id.editTextTextPersonName2);
         edad = findViewById(R.id.editTextNumber);
@@ -34,10 +36,10 @@ public class MainActivity extends AppCompatActivity {
                 //String apel = "Castillo";
                 //int ed = 18;
                 //String em = "sergioagustincastillo@gmail.com";
-                String nom = nombre.getText().toString();
-                String apel = apellidos.getText().toString();
+                person.setNombre(nombre.getText().toString());
+                person.setApellidos(apellidos.getText().toString());
                 String ed = edad.getText().toString();
-                String em = email.getText().toString();
+                person.setEmail(email.getText().toString());
                 int edad;
                 if(ed.isEmpty()==true){
                     edad = 0;
@@ -45,18 +47,19 @@ public class MainActivity extends AppCompatActivity {
                     edad = Integer.parseInt(ed);
                 }
 
-                if (nom.isEmpty() || apel.isEmpty() || ed.isEmpty() || em.isEmpty()) {
+                person.setEdad(edad);
+
+                if (person.getNombre().isEmpty() || person.getApellidos().isEmpty() || ed.isEmpty() || person.getEmail().isEmpty()) {
                     Toast toast1 = Toast.makeText(getApplicationContext(), "Debes completar todos los campos", Toast.LENGTH_SHORT);
                     toast1.show();
                 } else if (edad > 120) {
                     Toast toast1 = Toast.makeText(getApplicationContext(), "Ingrese una edad válida!", Toast.LENGTH_SHORT);
                     toast1.show();
-                } else if (em.contains("@") == false || em.contains(".") == false) {
+                } else if (person.getEmail().contains("@") == false || person.getEmail().contains(".") == false) {
                     Toast toast1 = Toast.makeText(getApplicationContext(), "Debe introducir un correo electrónico válido!", Toast.LENGTH_SHORT);
                     toast1.show();
                 } else {
-
-                    goResultados(nom, apel, edad, em);
+                    goResultados(person.getNombre(), person.getApellidos(), person.getEdad(), person.getEmail());
                 }
 
             }
@@ -82,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
     public void limpiar(){
         nombre.setText("");
         apellidos.setText("");
-        //edad.setText("");
+        edad.setText("");
         email.setText("");
     }
 }
